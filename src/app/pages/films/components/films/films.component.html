@@ -1,0 +1,22 @@
+<section class="films" *ngIf="films$ | async as films">
+  <h2 class="films__title">Films</h2>
+
+  <mat-divider></mat-divider>
+
+  <div class="films__list">
+    <mat-card class="films__item" *ngFor="let item of films">
+      <mat-card-content
+        class="films__item-mat-content"
+        [routerLink]="['./', item.url | idFromUrl]"
+      >
+        <div class="films__item-content">
+          <h2 class="films__item-title text-truncated">
+            {{ item.title }}
+          </h2>
+
+          <h3 class="films__item-text">Episode {{ item.episode_id }}</h3>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>

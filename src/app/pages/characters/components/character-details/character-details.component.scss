@@ -1,0 +1,14 @@
+.character-details {
+  &__card {
+    margin-top: 32px;
+    align-items: center;
+
+    &-content {
+      padding: 16px;
+    }
+
+    &-text {
+      text-align: center;
+    }
+  }
+}

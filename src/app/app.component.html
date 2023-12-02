@@ -1,0 +1,13 @@
+<div class="app">
+  <mat-toolbar [color]="'primary'">
+    <a class="app__logo" [routerLink]="['/']">Star Wars</a>
+  </mat-toolbar>
+
+  <main class="app__main app-container">
+    <router-outlet></router-outlet>
+
+    <div class="app__spinner" *ngIf="isSpinnerVisible$ | async">
+      <mat-spinner color="primary"></mat-spinner>
+    </div>
+  </main>
+</div>

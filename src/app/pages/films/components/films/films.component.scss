@@ -1,0 +1,39 @@
+@use 'main' as app;
+
+.films {
+  &__list {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin-top: 32px;
+  }
+
+  &__item {
+    min-height: 120px;
+    transition: background-color app.$transition-data;
+    cursor: pointer;
+
+    &:hover {
+      background-color: app.$color-black-100-3;
+    }
+
+    &-mat-content {
+      height: 100%;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    &-title {
+      text-align: center;
+    }
+
+    &-text {
+      margin-top: auto;
+      text-align: center;
+    }
+  }
+}

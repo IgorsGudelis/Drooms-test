@@ -1,0 +1,52 @@
+<section
+  class="character-details"
+  *ngIf="{
+    character: character$ | async,
+    characterFilms: characterFilms$ | async
+  } as data"
+>
+  <h2>Character details</h2>
+
+  <mat-divider></mat-divider>
+
+  <mat-card
+    class="character-details__card"
+    *ngIf="data.character && data.characterFilms"
+  >
+    <mat-card-header>
+      <mat-card-title>
+        {{ data.character.name }} ({{ data.character.birth_year }})
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="character-details__card-content">
+      <p class="character-details__card-text">
+        Gender: {{ data.character.gender }}
+      </p>
+      <p class="character-details__card-text">
+        Height: {{ data.character.height }}
+      </p>
+      <p class="character-details__card-text">
+        Weight: {{ data.character.hair_color }}
+      </p>
+      <p class="character-details__card-text">
+        Skin color: {{ data.character.skin_color }}
+      </p>
+      <p class="character-details__card-text">
+        Eye color: {{ data.character.eye_color }}
+      </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <mat-chip-listbox>
+        <mat-chip-option
+          *ngFor="let item of data.characterFilms"
+          [color]="'accent'"
+          [routerLink]="['/films', item.url | idFromUrl]"
+        >
+          {{ item.title }}
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </mat-card-actions>
+  </mat-card>
+</section>
